@@ -17,10 +17,9 @@ const Footer = () => {
       { name: 'Graphic Designing', href: '#services' },
     ],
     social: [
-      { name: 'Twitter', href: '#' },
-      { name: 'LinkedIn', href: '#' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/company/codequil' },
       { name: 'Instagram', href: 'https://www.instagram.com/codequil/' },
-      { name: 'Facebook', href: '#' },
+      { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61567216501387' },
     ],
   };
 

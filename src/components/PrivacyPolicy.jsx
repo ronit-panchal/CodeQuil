@@ -27,9 +27,6 @@ export default function PrivacyPolicy() {
       >
         Privacy Policy – CodeQuil
       </h1>
-      <p style={{ textAlign: "center", fontWeight: 500, marginBottom: 40 }}>
-        <strong>Last Updated: 16 November 2025</strong>
-      </p>
 
       <Section title="1. Information We Collect">
         <SubSection title="1.1 Personal Information">
@@ -74,9 +71,6 @@ export default function PrivacyPolicy() {
           <li>Opt out of marketing emails</li>
           <li>Disable cookies</li>
         </ul>
-        <p style={{ marginTop: "20px" }}>
-          Contact us at: <strong style={{ color: "#FFD700" }}>contact@codequil.com</strong>
-        </p>
       </Section>
 
       <Section title="6. Third-Party Links">
@@ -89,18 +83,6 @@ export default function PrivacyPolicy() {
         this page with a revised date.
       </Section>
 
-      <Section title="8. Contact Us">
-        <p>
-          <strong style={{ color: "#FFD700" }}>CodeQuil</strong>
-          <br />
-          Email: <a href="mailto:contact@codequil.com" style={{ color: "#FFD700" }}>contact@codequil.com</a>
-          <br />
-          Website:{" "}
-          <a href="https://www.codequil.com" target="_blank" rel="noopener noreferrer" style={{ color: "#FFD700" }}>
-            www.codequil.com
-          </a>
-        </p>
-      </Section>
 
       <hr style={{ margin: "40px 0", borderColor: "#FFD700" }} />
 
