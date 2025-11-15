@@ -19,7 +19,7 @@ const Footer = () => {
     social: [
       { name: 'Twitter', href: '#' },
       { name: 'LinkedIn', href: '#' },
-      { name: 'Instagram', href: '#' },
+      { name: 'Instagram', href: 'https://www.instagram.com/codequil/' },
       { name: 'Facebook', href: '#' },
     ],
   };
@@ -101,14 +101,6 @@ const Footer = () => {
             <p className="text-text-secondary">
               © {currentYear} CodeQuil. All rights reserved.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-text-secondary hover:text-accent transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-text-secondary hover:text-accent transition-colors">
-                Terms of Service
-              </a>
-            </div>
           </div>
         </div>
       </div>

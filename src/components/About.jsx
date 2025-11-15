@@ -52,7 +52,7 @@ const About = () => {
                 animate={{ opacity: 0.2, scale: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                CQ
+                CODEQUIL
               </motion.span>
             </motion.div>
           </motion.div>

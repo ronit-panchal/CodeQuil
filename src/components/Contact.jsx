@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
+// Your actual EmailJS credentials
+const SERVICE_ID = 'service_hz9nhct';
+const TEMPLATE_ID = 'template_ngp6nyt';
+const PUBLIC_KEY  = 'jmUB8ztRKZA522N5E';
+
 const Contact = () => {
   const formRef = useRef();
   const [formData, setFormData] = useState({
@@ -29,14 +34,12 @@ const Contact = () => {
     setSuccess(false);
 
     try {
-      // Replace these with your actual EmailJS credentials
       const result = await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // Create this in EmailJS
-        'YOUR_TEMPLATE_ID', // Create this in EmailJS
+        SERVICE_ID,
+        TEMPLATE_ID,
         formRef.current,
-        'YOUR_PUBLIC_KEY' // Get this from EmailJS
+        PUBLIC_KEY
       );
-
       if (result.text === 'OK') {
         setSuccess(true);
         setFormData({
@@ -45,6 +48,8 @@ const Contact = () => {
           subject: '',
           message: ''
         });
+      } else {
+        setError('Could not send email. Please try again later.');
       }
     } catch (error) {
       setError('Something went wrong. Please try again later.');
@@ -56,7 +61,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section bg-black relative overflow-hidden py-20">
-      {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-50" />
 
       <div className="container relative z-10 mx-auto px-4">
@@ -100,77 +104,32 @@ const Contact = () => {
                   Fill out the form or contact us directly using the information below.
                 </p>
               </div>
-
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-yellow-400/10 p-3 rounded-lg">
-                    <svg
-                      className="w-6 h-6 text-yellow-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
+                    {/* Location SVG */}
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Location</h4>
-                    <p className="text-gray-400">Your Address Here</p>
+                    <p className="text-gray-400">Malviya Nagar, Geetanjali Enclave, Delhi-110094</p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="bg-yellow-400/10 p-3 rounded-lg">
-                    <svg
-                      className="w-6 h-6 text-yellow-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
+                    {/* Email SVG */}
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Email</h4>
-                    <p className="text-gray-400">your@email.com</p>
+                    <p className="text-gray-400">codequil@outlook.com</p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="bg-yellow-400/10 p-3 rounded-lg">
-                    <svg
-                      className="w-6 h-6 text-yellow-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
+                    {/* Phone SVG */}
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Phone</h4>
-                    <p className="text-gray-400">+1 234 567 890</p>
+                    <p className="text-gray-400">+91 8447661050</p>
                   </div>
                 </div>
               </div>
@@ -199,7 +158,6 @@ const Contact = () => {
                     placeholder="Your name"
                   />
                 </div>
-
                 <div>
                   <label htmlFor="email" className="block text-white mb-2">
                     Email
@@ -215,7 +173,6 @@ const Contact = () => {
                     placeholder="your@email.com"
                   />
                 </div>
-
                 <div>
                   <label htmlFor="subject" className="block text-white mb-2">
                     Subject
@@ -231,7 +188,6 @@ const Contact = () => {
                     placeholder="Project inquiry"
                   />
                 </div>
-
                 <div>
                   <label htmlFor="message" className="block text-white mb-2">
                     Message
@@ -247,7 +203,6 @@ const Contact = () => {
                     placeholder="Tell us about your project..."
                   />
                 </div>
-
                 {error && (
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -257,7 +212,6 @@ const Contact = () => {
                     {error}
                   </motion.p>
                 )}
-
                 {success && (
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -267,13 +221,10 @@ const Contact = () => {
                     Message sent successfully! We'll get back to you soon.
                   </motion.p>
                 )}
-
                 <motion.button
                   type="submit"
                   disabled={loading}
-                  className={`w-full bg-yellow-400 text-black font-medium py-3 px-6 rounded-lg hover:bg-yellow-300 transition-colors ${
-                    loading ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
+                  className={`w-full bg-yellow-400 text-black font-medium py-3 px-6 rounded-lg hover:bg-yellow-300 transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -288,4 +239,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;
