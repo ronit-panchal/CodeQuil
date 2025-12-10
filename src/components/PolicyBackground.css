@@ -1,0 +1,91 @@
+/* Full-page animated gradient background */
+.policy-bg {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  /* main moving gradient */
+  background: linear-gradient(
+    -45deg,
+    #000000,
+    #020617,
+    #0b1120,
+    #020617,
+    #000000
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 16s ease-in-out infinite;
+}
+
+/* soft cyan glow blob */
+.policy-bg::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle at center,
+    rgba(56, 189, 248, 0.16),
+    rgba(15, 23, 42, 0)
+  );
+  filter: blur(4px);
+  animation: floatBlob 18s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* soft violet glow blob */
+.policy-bg::after {
+  content: "";
+  position: absolute;
+  bottom: -25%;
+  right: -8%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle at center,
+    rgba(129, 140, 248, 0.18),
+    rgba(15, 23, 42, 0)
+  );
+  filter: blur(4px);
+  animation: floatBlobReverse 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate(-10%, -5%) scale(1);
+  }
+  50% {
+    transform: translate(15%, 20%) scale(1.15);
+  }
+  100% {
+    transform: translate(-10%, -5%) scale(1);
+  }
+}
+
+@keyframes floatBlobReverse {
+  0% {
+    transform: translate(10%, 10%) scale(1);
+  }
+  50% {
+    transform: translate(-15%, -20%) scale(1.18);
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1);
+  }
+}
